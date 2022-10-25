@@ -18,7 +18,7 @@ function App() {
                     <Route path='/view-prs' element={<Blank />} />
                     <Route path='/site-details' element={<Blank />} />
                     <Route path='/suppliers' element={<Blank />} />
-                    <Route path='/logout' element={<Logout />} />
+                    <Route path='/logout' element={<Logout />} />                    
                 </Route>
             </Routes>
         </BrowserRouter>
