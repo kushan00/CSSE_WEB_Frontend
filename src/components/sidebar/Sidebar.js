@@ -1,19 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import {  useEffect, useRef, useState  } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './sidebar.scss';
+// import AuthContext from "../../context/Auth.context";
+// import {useContext} from 'react';
 
+ const loggedUserToken =    localStorage.getItem("token");
+ console.log(loggedUserToken);
 const sidebarNavItems = [
     {
         display: 'Home',
         icon: <i className='bx bx-home'></i>,
         to: '/',
         section: ''
-    },
-    {
-        display: 'Profile',
-        icon: <i className='bx bx-star'></i>,
-        to: '/profile',
-        section: 'profile'
     },
     {
         display: 'Received PRs',
@@ -45,15 +43,37 @@ const sidebarNavItems = [
         to: '/suppliers',
         section: 'suppliers'
     },
+    loggedUserToken  ? 
+    {
+        display: 'Profile',
+        icon: <i className='bx bx-star'></i>,
+        to: '/profile',
+        section: 'profile'
+    }
+    :
+    {
+    },
+    loggedUserToken  ? 
     {
         display: 'logout',
         icon: <i class='bx bxs-chevron-left-circle' ></i>,
         to: '/logout',
         section: 'logout'
+    }
+    :
+    {
+        display: 'Login',
+        icon: <i className='bx bx-star'></i>,
+        to: '/login',
+        section: 'Login'
     },
 ]
 
 const Sidebar = () => {
+
+
+    //const { Token, userRole } = useContext(AuthContext);
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [stepHeight, setStepHeight] = useState(0);
     const sidebarRef = useRef();
