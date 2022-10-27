@@ -19,6 +19,11 @@ export const supplierShopValidation =(data) =>{
         return output;
     
     }
+    else
+    {
+        output.status = true;
+        return output;
+    }
     
  
 };

@@ -5,7 +5,7 @@ import Select from "react-select"
 import {
     CardTitle,
 } from "reactstrap";
-
+import { getAllUsers } from "../../services/UserServices";
 import Swal from 'sweetalert2';
 
 
@@ -16,6 +16,30 @@ import { updateSupplierShop, getSupplierShopById } from "../../services/Supplier
 const UpdateSupplierShop = () => {
     const navigate = useNavigate();
     const id = useParams();
+
+    const [supplierList,setSupplierList] = useState([]);
+
+    const getsupplierList = async () => {
+        try {
+            const res = await getAllUsers();
+            console.log("Supplier List", res);
+            var supList = [];
+            res?.data?.data?.users?.map((item) =>{
+                if(item?.userRole == "supplier")
+                {
+                    supList.push({value:item._id,label:item.fullName,name:"supplier_Id"})
+                }
+
+            });
+            setSupplierList(supList);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getsupplierList();
+    },[]);
 
     const [data, setData] = useState({
         supplierShop_name: "",
@@ -30,18 +54,25 @@ const UpdateSupplierShop = () => {
         console.log(input);
         setData({ ...data, [input.name]: input.value });
     };
+    
+    const handelSelectorChange = (e) => {
+        console.log(e);
+        setData({ ...data, [e.name]: e });
+    }
 
     const getById = async () => {
         try {
             let data = await getSupplierShopById(id?.id);
             console.log("data", data);
-            setData({
-               
-                supplierShop_name: data.data.data.SupplierShops[0].supplierShop_name,
-                Location: data.data.data.SupplierShops[0].Location,
-                supplier_Id: {value:data.data.data.SupplierShops[0].supplier_Id._id,label:data.data.data.SupplierShops[0].supplier_Id.supplierShop_name,name:"supplier_Id"},
-                Mobile: data.data.data.SupplierShops[0].Mobile,
-                
+            setData({               
+                supplierShop_name: data?.data?.data?.SupplierShops[0]?.supplierShop_name,
+                Location: data?.data?.data?.SupplierShops[0]?.Location,
+                supplier_Id: {
+                              value:data?.data?.data?.SupplierShops[0]?.supplier_Id?._id,
+                              label:data?.data?.data?.SupplierShops[0]?.supplier_Id?.fullName,
+                              name:"supplier_Id"
+                             },
+                Mobile: data?.data?.data?.SupplierShops[0]?.Mobile,                
             })
         } catch (error) {
             console.log(error);
@@ -51,6 +82,7 @@ const UpdateSupplierShop = () => {
     useEffect(() => {
         getById();
     }, [])
+
 
     const updateSelectedSupplierShop = async (e) => {
 
@@ -79,7 +111,7 @@ const UpdateSupplierShop = () => {
                     title: 'Successful!',
                     text: 'supplier Shop Updated!',
                 })
-                navigate("/");
+                navigate("/suppliers");
 
             }
             else {
@@ -139,11 +171,12 @@ const UpdateSupplierShop = () => {
                         />
                       
                         <label style={{ marginTop: '15px' }}>suppier owner</label>
-                        <input
-                            className='form-control'
-                            name="supp;ier_Id"
-                            type="text"
-                            onChange={handleChange}
+                        <Select
+                            className="React"
+                            classNamePrefix="select"
+                            options={supplierList}
+                            name="supplier_Id"
+                            onChange={(e) => handelSelectorChange(e)}
                             value={data.supplier_Id}
 
                         />
