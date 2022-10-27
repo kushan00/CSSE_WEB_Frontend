@@ -23,7 +23,16 @@ const AddItem = () => {
         available_quantity: "",
     });
 
-   
+    let typeList = [
+        { value: "Cube", label: "Cube", name: "type" },
+        { value: "Kg", label: "Kg", name: "type" },
+        { value: "Pillow", label: "Pillow", name: "type" },
+        { value: "Bars", label: "Bars", name: "type" },
+        { value: "Peices", label: "Peices", name: "type" },
+    ];
+
+    
+
     const handelSelectorChange = (e) => {
         console.log(e);
         setData({ ...data, [e.name]: e });
@@ -146,17 +155,18 @@ const AddItem = () => {
                             name="supplier_Id"
                         />
 
-                        <label style={{ marginTop: '15px' }}>Enter type</label>
-                        <input
-                            className='form-control'
+                        <label style={{ marginTop: '15px' }}>Enter Item Type</label>
+                        <Select
+                            className="React"
+                            classNamePrefix="select"
                             name="type"
-                            type="text"
-                            onChange={handleChange}
+                            onChange={(e) => handelSelectorChange(e)}
                             value={data.type}
+                            options={typeList}
 
                         />
 
-                        <label style={{ marginTop: '15px' }}>Enter Quantity</label>
+                        <label style={{ marginTop: '15px' }}>Enter Item Quantity</label>
                         <input
                             className='form-control'
                             name="available_quantity"

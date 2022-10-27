@@ -36,32 +36,6 @@ const ViewItems = () => {
     const [loading, setLoading] = useState(false);
 
 
-    //----------------------------Search-----------------------
-
-
-    const filterData = (ItemDetails, Searchkey) => {
-        console.log(ItemDetails, Searchkey);
-        const result = ItemDetails.filter(
-            (Item) =>
-
-                Item.item_name.toString().toLowerCase().includes(Searchkey) ||
-                Item.unit_price.toString().toLowerCase().includes(Searchkey) ||
-                Item.available_quantity.toString().toLowerCase().includes(Searchkey) ||
-                Item.type.toString().toLowerCase().includes(Searchkey),
-        );
-        setItemDetails(result);
-    }
-
-    const handleSearchArea = (e) => {
-        const Searchkey = e.currentTarget.value;
-        axios.get("http://localhost:5000/Item//getAllItems").then((res) => {
-            if (res.data?.message == "Success") {
-                filterData(res.data.data, Searchkey);
-            }
-        });
-    }
-
-    //---------------------------------------------------------
 
 
     const getItems = async () => {
@@ -130,7 +104,7 @@ const ViewItems = () => {
     const columns = [
 
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >Name</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Item Name</Badge>),
             selector: "item_name",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -139,16 +113,16 @@ const ViewItems = () => {
             ),
         },
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >price</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Item Price(Rs.)</Badge>),
             selector: "unit_price",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <Label style={{ fontSize: "16px" }}><b>{data?.unit_price}</b><br /></Label>
+                    <Label style={{ fontSize: "16px" }}><b>{data?.unit_price}.00</b><br /></Label>
                 </div>
             ),
         },
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >Supplier</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Supplier Name</Badge>),
             selector: "supplier_Id",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -157,7 +131,7 @@ const ViewItems = () => {
             ),
         },
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >type</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Item Type</Badge>),
             selector: "type",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -167,7 +141,7 @@ const ViewItems = () => {
         },
        
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >Quantity</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} > Item Quantity</Badge>),
             selector: "available_quantity",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -209,18 +183,7 @@ const ViewItems = () => {
 
                         <CardTitle style={{ color: "black", fontSize: "30px", float: "left" }}><b>Item Catelogue</b></CardTitle>
 
-                        <br /> <br /><br /> <br />
-                        <div style={{ float: "left" }}>
-                            <input
-                                className="form-control"
-                                style={{ width: "400px" }}
-                                type="search"
-                                placeholder="Search for Items"
-                                name="searchQuery"
-                                onChange={(e) => handleSearchArea(e)}
-                            >
-                            </input>
-                        </div>
+                        
 
                         <Button className="btn btn-dark" style={{ fontSize: "15px", float: "right", width: '200px' }} onClick={(e) => routeToAddPage(e)}><i class="fa-solid fa-circle-plus"></i><b>  Add New Item</b></Button>
 
@@ -229,7 +192,7 @@ const ViewItems = () => {
                         {/* <div style={{ fontSize: "15px", float: "right", marginLeft: "10px", marginRight: '20px' }}>&nbsp;&nbsp;&nbsp;
                             <ReactHTMLTableToExcel
                                 id="test-table-xls-button"
-                                className="download-table-xls-button btn btn-dark"
+                                className="download-table-xls-button btn btn-success"
                                 table="table-to-xls"
                                 filename="Items Details"
                                 sheet="tablexls"
