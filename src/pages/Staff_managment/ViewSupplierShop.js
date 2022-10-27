@@ -115,7 +115,7 @@ const ViewSupplierShops = () => {
                     'Supplier Shop has been deleted.',
                     'success'
                 )
-                getAllSupplierShops();
+                getSupplierShops();
             }
         })
     }

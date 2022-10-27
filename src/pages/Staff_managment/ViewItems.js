@@ -114,7 +114,7 @@ const ViewItems = () => {
                     'Item has been deleted.',
                     'success'
                 )
-                getAllItems();
+                getItems();
             }
         })
     }
@@ -183,7 +183,7 @@ const ViewItems = () => {
             cell: (data) => (
                 <div className="row">
                     <div className="col">
-                        <a href={`/edit-Item/${data?._id}`}> <img src={editIcon} style={{ height: "25px", width: "25px" }} /></a>
+                        <a href={`/update-item/${data?._id}`}> <img src={editIcon} style={{ height: "25px", width: "25px" }} /></a>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div className="col">
