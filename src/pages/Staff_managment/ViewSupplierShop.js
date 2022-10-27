@@ -35,33 +35,6 @@ const ViewSupplierShops = () => {
     const [loading, setLoading] = useState(false);
 
 
-    //----------------------------Search-----------------------
-
-
-    const filterData = (ItemDetails, Searchkey) => {
-        console.log(ItemDetails, Searchkey);
-        const result = ItemDetails.filter(
-            (Item) =>
-
-                Item.supplierShops.toString().toLowerCase().includes(Searchkey) ||
-                Item.Location.toString().toLowerCase().includes(Searchkey) ||
-                Item.Mobile.toString().toLowerCase().includes(Searchkey),
-              
-        );
-        setItemDetails(result);
-    }
-
-    const handleSearchArea = (e) => {
-        const Searchkey = e.currentTarget.value;
-        axios.get("http://localhost:5000/supplierShop/getAllSupplierShops").then((res) => {
-            if (res.data?.message == "Success") {
-                filterData(res.data.data, Searchkey);
-            }
-        });
-    }
-
-    //---------------------------------------------------------
-
 
     const getSupplierShops = async () => {
         try {
@@ -131,7 +104,7 @@ const ViewSupplierShops = () => {
     const columns = [
 
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >Supplier Shop Name</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Supplier Shop Name</Badge>),
             selector: "supplierShop_name",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -140,7 +113,7 @@ const ViewSupplierShops = () => {
             ),
         },
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >Location</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Location</Badge>),
             selector: "Location",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -149,7 +122,7 @@ const ViewSupplierShops = () => {
             ),
         },
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >Supplier shop owner</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Supplier Shop Owner</Badge>),
             selector: "supplier_Id",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -158,7 +131,7 @@ const ViewSupplierShops = () => {
             ),
         },
         {
-            name: (<Badge color="dark" style={{ fontSize: "16px" }} >Mobile</Badge>),
+            name: (<Badge color="success" style={{ fontSize: "16px" }} >Mobile Number</Badge>),
             selector: "Mobile",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -201,18 +174,7 @@ const ViewSupplierShops = () => {
 
                         <CardTitle style={{ color: "black", fontSize: "30px", float: "left" }}><b>Suppliers</b></CardTitle>
 
-                        <br /> <br /><br /> <br />
-                        <div style={{ float: "left" }}>
-                            <input
-                                className="form-control"
-                                style={{ width: "400px" }}
-                                type="search"
-                                placeholder="Search for SupplierShops"
-                                name="searchQuery"
-                                onChange={(e) => handleSearchArea(e)}
-                            >
-                            </input>
-                        </div>
+                        
 
                         <Button className="btn btn-dark" style={{ fontSize: "15px", float: "right", width: '200px' }} onClick={(e) => routeToAddPage(e)}><i class="fa-solid fa-circle-plus"></i><b>  Add New Supplier Shop</b></Button>
 

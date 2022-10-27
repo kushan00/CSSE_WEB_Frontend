@@ -4,7 +4,7 @@ import StartUrl from "../configs/Url.json";
 
 const CreateURL = StartUrl?.StartUrl + "/item/createItem";
 const GetAllURL = StartUrl?.StartUrl + "/item/getAllItems";
-const GetByIDURL = StartUrl?.StartUrl + "/item/getItemById/";
+const GetByIDURL = StartUrl?.StartUrl + "/item/getItem/";
 const UpdateURL = StartUrl?.StartUrl + "/item/updateItem/";
 const DeleteURL = StartUrl?.StartUrl + "/item/deleteItem/";
 
@@ -13,7 +13,7 @@ export async function createItem(data) {
     const alldata = {
         item_name:data?.item_name,
         unit_price:data?.unit_price,
-        type:data?.type,
+        type:data?.type?.value,
         available_quantity:data?.available_quantity,
         supplier_Id:data?.supplier_Id?.value      
     } 
@@ -85,8 +85,8 @@ export async function updateItem(id,data) {
         item_Id:data?.item_Id,
         item_name:data?.item_name,
         unit_price:data?.unit_price,
-        supplier_Id:data?.supplier_Id,
-        type:data?.type,
+        supplier_Id:data?.supplier_Id?.value,
+        type:data?.type.value,
         available_quantity:data?.available_quantity
        
     }  

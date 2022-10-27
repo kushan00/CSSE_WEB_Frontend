@@ -80,7 +80,7 @@ export async function updateSupplierShop(id,data) {
     const alldata = {
         
         supplierShop_name:data?.supplierShop_name,
-        location:data?.location,
+        Location:data?.Location,
         supplier_Id:data?.supplier_Id?.value,
         Mobile:data?.Mobile
     }  

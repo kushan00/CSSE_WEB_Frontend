@@ -151,26 +151,26 @@ const UpdateSupplierShop = () => {
 
 
                        
-                        <label style={{ marginTop: '15px' }}>Enter SupplierShop Name</label>
+                        <label style={{ marginTop: '15px' }}>Enter Supplier Shop Name</label>
                         <input
                             className='form-control'
-                            name="SupplierShop_name"
+                            name="supplierShop_name"
                             onChange={handleChange}
                             value={data.supplierShop_name}
 
                         />
 
-                        <label style={{ marginTop: '15px' }}>Location</label>
+                        <label style={{ marginTop: '15px' }}>Enter Location</label>
                         <input
                             className='form-control'
-                            name="location"
+                            name="Location"
                             onChange={handleChange}
                             value={data.Location}
                             type='text'
 
                         />
                       
-                        <label style={{ marginTop: '15px' }}>suppier owner</label>
+                        <label style={{ marginTop: '15px' }}>Enter Supplier Owner</label>
                         <Select
                             className="React"
                             classNamePrefix="select"
@@ -181,7 +181,7 @@ const UpdateSupplierShop = () => {
 
                         />
 
-                        <label style={{ marginTop: '15px' }}>Mobile</label>
+                        <label style={{ marginTop: '15px' }}>Mobile Number</label>
                         <input
                             className='form-control'
                             name="Mobile"

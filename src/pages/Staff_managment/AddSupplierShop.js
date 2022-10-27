@@ -80,7 +80,7 @@ const AddSupplierShop = () => {
                     title: 'Successful!',
                     text: 'New Supplier Shop added!',
                 })
-                navigate("/");
+                navigate("/suppliers");
 
             }
             else {
@@ -120,7 +120,7 @@ const AddSupplierShop = () => {
 
 
                        
-                        <label style={{ marginTop: '15px' }}>Enter SupplierShop Name</label>
+                        <label style={{ marginTop: '15px' }}>Enter Supplier Shop Name</label>
                         <input
                             className='form-control'
                             name="supplierShop_name"
@@ -129,7 +129,7 @@ const AddSupplierShop = () => {
 
                         />
 
-                        <label style={{ marginTop: '15px' }}>Location</label>
+                        <label style={{ marginTop: '15px' }}>Enater Location</label>
                         <input
                             className='form-control'
                             name="Location"
@@ -139,7 +139,7 @@ const AddSupplierShop = () => {
 
                         />
                       
-                        <label style={{ marginTop: '15px' }}>suppier owner</label>
+                        <label style={{ marginTop: '15px' }}>Enter Supplier Owner</label>
                         <Select
                             className="React"
                             classNamePrefix="select"
@@ -150,7 +150,7 @@ const AddSupplierShop = () => {
 
                         />
 
-                        <label style={{ marginTop: '15px' }}>Mobile</label>
+                        <label style={{ marginTop: '15px' }}>Enter Mobile Number</label>
                         <input
                             className='form-control'
                             name="Mobile"
