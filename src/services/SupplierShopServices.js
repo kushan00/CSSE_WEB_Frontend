@@ -10,16 +10,13 @@ const DeleteURL = StartUrl?.StartUrl + "/supplierShop/deleteSupplierShop/";
 
  
 export async function createSupplierShop(data) {
-    const alldata = {
-        
-       
+    const alldata = {      
         supplierShop_name:data?.supplierShop_name,
-        location:data?.location,
-        supplier_Id:data?.supplier_Id,
-        Mobile:data?.Mobile
-   
-       
+        Location:data?.Location,
+        supplier_Id:data?.supplier_Id?.value,
+        Mobile:data?.Mobile      
     } 
+    console.log("alldata",alldata);
     let result;
     await axios.post(CreateURL,alldata)
      .then(function(data) {
@@ -84,7 +81,7 @@ export async function updateSupplierShop(id,data) {
         
         supplierShop_name:data?.supplierShop_name,
         location:data?.location,
-        supplier_Id:data?.supplier_Id,
+        supplier_Id:data?.supplier_Id?.value,
         Mobile:data?.Mobile
     }  
     let result;

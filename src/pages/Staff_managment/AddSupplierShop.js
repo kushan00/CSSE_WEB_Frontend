@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Select from "react-select"
 import { CardTitle } from "reactstrap";
-
+import { getAllUsers } from "../../services/UserServices";
 import Swal from 'sweetalert2';
 import { supplierShopValidation } from "../Staff_managment/SupplierShopValidation";
 import { createSupplierShop } from "../../services/SupplierShopServices";
@@ -19,9 +19,37 @@ const AddSupplierShop = () => {
         Mobile: "",
     });
 
+    const [supplierList,setSupplierList] = useState([]);
+
+    const getsupplierList = async () => {
+        try {
+            const res = await getAllUsers();
+            console.log("Supplier List", res);
+            var supList = [];
+            res?.data?.data?.users?.map((item) =>{
+                if(item?.userRole == "supplier")
+                {
+                    supList.push({value:item._id,label:item.fullName,name:"supplier_Id"})
+                }
+
+            });
+            setSupplierList(supList);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getsupplierList();
+    },[]);
+
+    const handelSelectorChange = (e) => {
+        console.log(e);
+        setData({ ...data, [e.name]: e });
+    };
    
     const handleChange = ({ currentTarget: input }) => {
-        setData({ ...data, [input.supplierShop_name]: input.value });
+        setData({ ...data, [input.name]: input.value });
     };
 
 
@@ -95,7 +123,7 @@ const AddSupplierShop = () => {
                         <label style={{ marginTop: '15px' }}>Enter SupplierShop Name</label>
                         <input
                             className='form-control'
-                            name="SupplierShop_name"
+                            name="supplierShop_name"
                             onChange={handleChange}
                             value={data.supplierShop_name}
 
@@ -104,7 +132,7 @@ const AddSupplierShop = () => {
                         <label style={{ marginTop: '15px' }}>Location</label>
                         <input
                             className='form-control'
-                            name="location"
+                            name="Location"
                             onChange={handleChange}
                             value={data.Location}
                             type='text'
@@ -112,11 +140,12 @@ const AddSupplierShop = () => {
                         />
                       
                         <label style={{ marginTop: '15px' }}>suppier owner</label>
-                        <input
-                            className='form-control'
-                            name="supp;ier_Id"
-                            type="text"
-                            onChange={handleChange}
+                        <Select
+                            className="React"
+                            classNamePrefix="select"
+                            options={supplierList}
+                            name="supplier_Id"
+                            onChange={(e) => handelSelectorChange(e)}
                             value={data.supplier_Id}
 
                         />
