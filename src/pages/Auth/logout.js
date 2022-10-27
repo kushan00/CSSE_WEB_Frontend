@@ -11,9 +11,10 @@ const  Logout = ()=>  {
       localStorage.removeItem("user");
       localStorage.removeItem("userID");
       localStorage.removeItem("_id");
-      //window.location.reload();
-      navigate("/login");
+      window.location.reload();
+      navigate("/");
     }
+
 
     const closeLogout = () => {
       navigate("/");
