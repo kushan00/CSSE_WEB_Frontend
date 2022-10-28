@@ -107,17 +107,18 @@ const Sidebar = () => {
             </center>
         </div>
         <div ref={sidebarRef} className="sidebar__menu">
-            <div
+            {/* <div
                 ref={indicatorRef}
                 className="sidebar__menu__indicator"
                 style={{
                     transform: `translateX(-50%) translateY(${activeIndex * stepHeight}px)`
                 }}
-            ></div>
+            ></div> */}
             { 
                 sidebarNavItems.map((item, index) => (                                 
                     <Link to={item.to} key={index}>
-                        <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`}>
+                        <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`} 
+                          style={{ color : activeIndex == index ? "blue" : "black"}}>
                             <div className="sidebar__menu__item__icon">
                                 {item.icon}
                             </div>

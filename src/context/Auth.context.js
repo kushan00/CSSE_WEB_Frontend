@@ -11,6 +11,12 @@ function AuthContextProvider(props) {
 
   const checkToken = async ()=>{
     let data = await Auth(localStorage.getItem("token"));
+    if(data?.status == 200){
+      setuserLogged(true);
+    }
+    else{
+      setuserLogged(false);
+    }
     console.log("data",data);
     
   }
