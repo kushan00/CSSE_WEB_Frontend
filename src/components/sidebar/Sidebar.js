@@ -1,15 +1,16 @@
-import {  useEffect, useRef, useState  } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './sidebar.scss';
 // import AuthContext from "../../context/Auth.context";
 // import {useContext} from 'react';
 
- const loggedUserToken =    localStorage.getItem("token");
- console.log(loggedUserToken);
+const loggedUserToken = localStorage.getItem("token");
+console.log(loggedUserToken);
 const sidebarNavItems = [
     {
+
         display: 'Home',
-        icon: <i className='bx bx-home'></i>,
+        icon: <i style={{ fontFamily: 'inherit' }} className='bx bx-home'></i>,
         to: '/',
         section: ''
     },
@@ -43,30 +44,30 @@ const sidebarNavItems = [
         to: '/suppliers',
         section: 'suppliers'
     },
-    loggedUserToken  ? 
-    {
-        display: 'Profile',
-        icon: <i className='bx bx-star'></i>,
-        to: '/profile',
-        section: 'profile'
-    }
-    :
-    {
-    },
-    loggedUserToken  ? 
-    {
-        display: 'logout',
-        icon: <i class='bx bxs-chevron-left-circle' ></i>,
-        to: '/logout',
-        section: 'logout'
-    }
-    :
-    {
-        display: 'Login',
-        icon: <i className='bx bx-star'></i>,
-        to: '/login',
-        section: 'Login'
-    },
+    loggedUserToken ?
+        {
+            display: 'Profile',
+            icon: <i className='bx bx-star'></i>,
+            to: '/profile',
+            section: 'profile'
+        }
+        :
+        {
+        },
+    loggedUserToken ?
+        {
+            display: 'logout',
+            icon: <i class='bx bxs-chevron-left-circle' ></i>,
+            to: '/logout',
+            section: 'logout'
+        }
+        :
+        {
+            display: 'Login',
+            icon: <i className='bx bx-star'></i>,
+            to: '/login',
+            section: 'Login'
+        },
 ]
 
 const Sidebar = () => {
@@ -92,45 +93,43 @@ const Sidebar = () => {
     useEffect(() => {
         const curPath = window.location.pathname.split('/')[1];
         const activeItem = sidebarNavItems.findIndex(item => item.section === curPath);
-        setActiveIndex(curPath.length === 0 ? 0 : activeItem);        
+        setActiveIndex(curPath.length === 0 ? 0 : activeItem);
     }, [location]);
 
     return (
-    <div className='sidebar'>
-        <div className="sidebar__logo">
-            <center style={{color:"purple"}}>
-            Procurement 
-            <br/>
-            For
-            <br/>
-            Construction Industry
-            </center>
-        </div>
-        <div ref={sidebarRef} className="sidebar__menu">
-            {/* <div
+        <div className='sidebar' style={{ backgroundColor: 'white' }} >
+            <div className="sidebar__logo">
+                <center style={{ color: "#1591b0", fontFamily: 'arial'}}>
+                    <b>
+                        Procurement Construction Industry
+                    </b>
+                </center>
+            </div>
+            <div style={{ backgroundColor: 'white' }} ref={sidebarRef} className="sidebar__menu">
+                {/* <div
                 ref={indicatorRef}
                 className="sidebar__menu__indicator"
                 style={{
                     transform: `translateX(-50%) translateY(${activeIndex * stepHeight}px)`
                 }}
             ></div> */}
-            { 
-                sidebarNavItems.map((item, index) => (                                 
-                    <Link to={item.to} key={index}>
-                        <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`} 
-                          style={{ color : activeIndex == index ? "blue" : "black"}}>
-                            <div className="sidebar__menu__item__icon">
-                                {item.icon}
+                {
+                    sidebarNavItems.map((item, index) => (
+                        <Link to={item.to} key={index}>
+                            <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`}
+                                style={{ color: activeIndex == index ? "#1591b0" : "black" }}>
+                                <div className="sidebar__menu__item__icon">
+                                    {item.icon}
+                                </div>
+                                <div className="sidebar__menu__item__text">
+                                    {item.display}
+                                </div>
                             </div>
-                            <div className="sidebar__menu__item__text">
-                                {item.display}
-                            </div>
-                        </div>
-                    </Link>
-                ))
-            } 
+                        </Link>
+                    ))
+                }
+            </div>
         </div>
-    </div>
     );
 };
 
