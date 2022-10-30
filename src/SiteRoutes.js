@@ -12,8 +12,9 @@ import UpdateItem from './pages/Staff_managment/UpdateItem';
 import AddSupplierShop from './pages/Staff_managment/AddSupplierShop';
 import UpdateSupplierShop from './pages/Staff_managment/UpdateSupplierShop';
 import ViewSupplierShops from './pages/Staff_managment/ViewSupplierShop';
+import ViewAllRequestions from './pages/HandleRequestions/ViewAllRequestions'
+import ViewPr from './pages/HandleRequestions/ViewPr'
 import Profile from './pages/Auth/Profile';
-
 
 
 function SiteRoutes() {
@@ -32,6 +33,7 @@ function SiteRoutes() {
                         <Route path='/' element={<AppLayout />}>
                             <Route index element={<Home />} />
                             <Route path='/profile' element={<Profile  />} />
+                            <Route path='/received-prs' element={<ViewAllRequestions />} />
                             <Route path='/received-prs' element={<Blank />} />
                             <Route path='/items-catalogue' element={<ViewItems />} />
                             <Route path='/view-prs' element={<Blank />} />
@@ -44,6 +46,8 @@ function SiteRoutes() {
 
                             <Route path='/add-suppliershop' element={<AddSupplierShop />} />
                             <Route path='/update-suppliershop/:id' element={<UpdateSupplierShop />} />
+
+                            <Route path='/accept-pr/:id' element={<ViewPr />} />
                         </Route>
                     </>
                     )
