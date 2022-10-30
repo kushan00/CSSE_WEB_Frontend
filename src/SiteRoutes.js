@@ -31,7 +31,7 @@ function SiteRoutes() {
                     <>
                         <Route path='/' element={<AppLayout />}>
                             <Route index element={<Home />} />
-                            <Route path='/profile' element={<Profile />} />
+                            <Route path='/profile' element={<Profile  />} />
                             <Route path='/received-prs' element={<Blank />} />
                             <Route path='/items-catalogue' element={<ViewItems />} />
                             <Route path='/view-prs' element={<Blank />} />
