@@ -4,7 +4,7 @@ import StartUrl from "../configs/Url.json";
 
 const LoginURL = StartUrl?.StartUrl + "/user/signin";
 const AuthURL = StartUrl?.StartUrl + "/user/auth";
-const UpdateAdminURL = StartUrl?.StartUrl + "/user/update-user/";
+const UpdateUserURL = StartUrl?.StartUrl + "/user/update-user/";
 
 export async function LoginUsers(data){
     const alldata = {
@@ -59,13 +59,13 @@ export async function Auth(token){
   return result;
 }
 
-export async function updateAdmin(id,data) {
+export async function UpdateUser(id,data) {
   const alldata = {
       fullName: data?.fullName,
       mobileno: data?.mobileno,
       email: data?.email,
   };
 
-  return await axios.put(UpdateAdminURL + id, alldata);
+  return await axios.put(UpdateUserURL + id, alldata);
 
 }
