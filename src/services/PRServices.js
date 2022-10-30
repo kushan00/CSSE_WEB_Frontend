@@ -42,7 +42,7 @@ export async function getAllRequsitions() {
 
 export async function UpdateStatus(id) {
   const alldata = {
-    status: "reject",
+    status: "accepted",
   };
   let result;
   await axios

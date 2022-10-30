@@ -18,7 +18,6 @@ import {
 
 import moment from 'moment';
 import Swal from 'sweetalert2';
-//import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import { getAllRequsitions } from '../../services/PRServices';
 import { UpdateStatus } from "../../services/PRServices";
 
@@ -157,70 +156,16 @@ const ViewAllRequestions = () => {
             <div style={{ margin: "10px" }}>
                 <Card >
                     <CardHeader >
-
                         <CardTitle style={{ color: "black", fontSize: "30px", float: "left" }}><b>Received Requesitons</b></CardTitle>
-
-
-                        {/* &nbsp;&nbsp;&nbsp; */}
-
-                        {/* <div style={{ fontSize: "15px", float: "right", marginLeft: "10px", marginRight: '20px' }}>&nbsp;&nbsp;&nbsp;
-                            <ReactHTMLTableToExcel
-                                id="test-table-xls-button"
-                                className="download-table-xls-button btn btn-success"
-                                table="table-to-xls"
-                                filename="Items Details"
-                                sheet="tablexls"
-                                buttonText={<i class="fa-solid fa-print"></i>}
-                            />
-                        </div> */}
-
-
-
                     </CardHeader>
                     <CardBody >
-
                         <DataTable
-
                             data={PRDetails}
                             columns={columns}
                             progressPending={loading}
                         />
                     </CardBody>
                 </Card>
-
-                {/* <table id="table-to-xls" style={{ display: "none" }}>
-                    <tr>
-                        <th></th>
-                        <th>Item ID</th>
-                        <th>Category</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
-                        <th>In stock</th>
-                        <th>Expired Date</th>
-                    </tr>
-                    {PRDetails.map((Item, index) => (
-                        <tr >
-                            <th scope="row">{index + 1}</th>
-                            <td><b>{Item?._id}</b></td>
-                            <td><b>{Item.category}</b></td>
-                            <td><b>{Item.ItemName}</b></td>
-                            <td><b>LKR. {Item.ItemPrice}</b></td>
-                            <td><b>{Item.quantity}</b></td>
-                            <td><b>{moment(Item?.expireDate).format(" YYYY-MM-DD ")}</b></td>
-                        </tr>
-                    ))}
-                    <tr></tr>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>Total Items</th>
-                        <td>{PRDetails.length}</td>
-                    </tr>
-                </table> */}
             </div>
 
         </div>
