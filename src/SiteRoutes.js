@@ -12,6 +12,7 @@ import UpdateItem from './pages/Staff_managment/UpdateItem';
 import AddSupplierShop from './pages/Staff_managment/AddSupplierShop';
 import UpdateSupplierShop from './pages/Staff_managment/UpdateSupplierShop';
 import ViewSupplierShops from './pages/Staff_managment/ViewSupplierShop';
+import Profile from './pages/Auth/Profile';
 
 
 
@@ -30,7 +31,7 @@ function SiteRoutes() {
                     <>
                         <Route path='/' element={<AppLayout />}>
                             <Route index element={<Home />} />
-                            <Route path='/profile' element={<Home />} />
+                            <Route path='/profile' element={<Profile />} />
                             <Route path='/received-prs' element={<Blank />} />
                             <Route path='/items-catalogue' element={<ViewItems />} />
                             <Route path='/view-prs' element={<Blank />} />
