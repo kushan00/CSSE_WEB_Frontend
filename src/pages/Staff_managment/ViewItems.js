@@ -5,6 +5,7 @@ import DataTable from "react-data-table-component";
 import Select from "react-select"
 import editIcon from "../../images/pencil.png"
 import binIcon from "../../images/bin.png"
+import "../../images/style.css"
 import {
     Badge,
     Card,
