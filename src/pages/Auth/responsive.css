@@ -12,11 +12,11 @@
 
 
 #responsiveProfile {
-    width:40%;
+    width:50%;
     height:40px;
 }
 
-@media (max-width:768px) {
+@media (max-width:968px) {
     #responsiveProfile {
         width:80%;
         height:40px;
@@ -24,12 +24,12 @@
 }
 
 #responsiveCard {
-    width:50% ;
+    width:60% ;
     border-color:black;
     border-radius:100px;
 }
 
-@media (max-width:768px) {
+@media (max-width:968px) {
     #responsiveCard {
         width:100% ;
         border-color:"black";
