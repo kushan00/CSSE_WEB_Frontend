@@ -44,6 +44,12 @@ const sidebarNavItems = [
         to: '/suppliers',
         section: 'suppliers'
     },
+    {
+        display: 'Orders',
+        icon: <i class='bx bxs-shopping-bag-alt'></i>,
+        to: '/orders',
+        section: 'orders'
+    },
     loggedUserToken ?
         {
             display: 'Profile',
