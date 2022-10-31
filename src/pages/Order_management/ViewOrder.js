@@ -36,6 +36,7 @@ const ViewPr = () => {
     var total = 0;
     data?.data?.data?.Orders[0]?.order_Items.map((item) => {
       total = total + parseInt(item?.price);
+      
     });
     setData({
       Company_details: data?.data?.data?.Orders[0]?.Company_details,
@@ -47,6 +48,7 @@ const ViewPr = () => {
       PR_Id: data?.data?.data?.Orders[0]?._id,
       total_price: total,
       credit_notice: data?.data?.data?.Orders[0]?.credit_notice,
+      
     });
   };
 
@@ -62,70 +64,51 @@ const ViewPr = () => {
           style={{
             marginTop: "70px",
             marginBottom: "70px",
-            width: "1100px",
+            width: "950px",
             float: "none",
             backgroundColor: "white",
-            border: "1px solid black",
+            border: "2px solid black",
           }}
         >
           <div>
             <center>
-              <CardTitle style={{ color: "black", fontSize: "40px", margin: '30px'}}>
+              <CardTitle style={{ color: "black", fontSize: "40px", margin: '30px' }}>
                 <h3>
-                  <b>View Order</b>
+                  <b>View Order Details</b>
                 </h3>
               </CardTitle>
             </center>
 
-            <div className="container" style={{ width: "50%" }}>
-              <form className="form-group">
-                <label style={{ marginTop: "15px" }}>Supplier Details</label>
-                <input
-                  className="form-control"
-                  name="Supplier_detils"
-                  value={data?.Supplier_detils?.fullName}
-                  type="text"
-                  readOnly
-                />
+            <dl className="row">
 
-                <label style={{ marginTop: "15px" }}>Site Manager</label>
-                <input
-                  className="form-control"
-                  name="site_manager_id"
-                  value={data?.site_manager_id?.fullName}
-                  type="text"
-                  readOnly
-                />
+              <dt className="col-sm-3"><b>Supplier Name</b></dt>
+              <dd className="col-sm-9">{data?.Supplier_detils?.fullName}</dd>
 
-                <label style={{ marginTop: "15px" }}>Company</label>
-                <input
-                  className="form-control"
-                  name="Company_details"
-                  value={data.Company_details}
-                  type="text"
-                  readOnly
-                />
+              <br></br><br></br>
 
-                <label style={{ marginTop: "15px" }}>Delivery Details</label>
-                <input
-                  className="form-control"
-                  name="delivery_details"
-                  value={data.delivery_details}
-                  type="text"
-                  readOnly
-                />
+              <dt className="col-sm-3"><b>Site Manager Name</b></dt>
+              <dd className="col-sm-9">{data?.site_manager_id?.fullName}</dd>
 
-                <label style={{ marginTop: "15px" }}>Required Date</label>
-                <input
-                  className="form-control"
-                  name="required_date"
-                  value={data.required_date}
-                  type="text"
-                  readOnly
-                />
+              <br></br><br></br>
 
-                <label style={{ marginTop: "15px" }}>Order Items</label>
-                <table className="table">
+              <dt className="col-sm-3"><b>Company Name</b></dt>
+              <dd className="col-sm-9">{data.Company_details}</dd>
+
+              <br></br><br></br>
+
+              <dt className="col-sm-3"><b>Delivery Details</b></dt>
+              <dd className="col-sm-9">{data.delivery_details}</dd>
+
+              <br></br><br></br>
+
+              <dt className="col-sm-3"><b>Required Date</b></dt>
+              <dd className="col-sm-9">{data.required_date}</dd>
+
+              <br></br><br></br>
+
+              <dt className="col-sm-3"><b>Ordrer Items</b></dt>
+              <dd className="col-sm-9">
+                <table className="table table-striped table-secondary">
                   <tr>
                     <th>Item Name</th>
                     <th>Quantity</th>
@@ -141,41 +124,21 @@ const ViewPr = () => {
                     );
                   })}
                 </table>
+              </dd>
 
-                <label style={{ marginTop: "15px" }}>Total Price</label>
-                <input
-                  className="form-control"
-                  name="total_price"
-                  value={data.total_price}
-                  type="number"
-                  readOnly
-                />
+              <br></br><br></br><br></br>
 
-                <div className="row">
-                  <div className="col">
-                    {/* <label style={{ marginTop: "15px" }}>Order Status</label>
-                    <Select
-                      className="React"
-                      classNamePrefix="select"
-                      options={statusList}
-                      value={order_status.order_status}
-                      onChange={(e) => handleCategory(e)}
-                      name="order_status"
-                    /> */}
+              <dt className="col-sm-3"><b>Total Price</b></dt>
+              <dd className="col-sm-9">LKR. {data.total_price}</dd>
 
-                    <label style={{ marginTop: "15px" }}>Credit Notice</label>
-                    <textarea
-                      className="form-control"
-                      name="credit_notice"
-                      onChange={(e) => handleChange(e)}
-                      value={data.credit_notice}
-                      type="text"
-                      readOnly
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
+              <br></br><br></br>
+
+              <dt className="col-sm-3"><b>Credit Notice</b></dt>
+              <dd className="col-sm-9">{data.credit_notice}</dd>
+
+
+
+            </dl>
           </div>
         </div>
       </div>

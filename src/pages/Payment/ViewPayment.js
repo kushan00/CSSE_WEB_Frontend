@@ -172,7 +172,7 @@ const ViewPayment = () => {
             selector: "final_price",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <Label style={{ fontSize: "14px" }}><b>LKR. {data.final_price}</b><br /></Label>
+                    <Label style={{ fontSize: "14px", color:'red' }}><b>LKR. {data.final_price}</b><br /></Label>
                 </div>
             ),
         },
