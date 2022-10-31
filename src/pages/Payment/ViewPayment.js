@@ -40,7 +40,7 @@ const ViewPayment = () => {
             console.log("all payments", data);
             let newData = data?.data?.data?.Invoices?.map((item) => {
                 return {
-                    order_Id: item?.order_Id,
+                    order_Id: item?.order_Id?.order_Id,
                     created_supplier_id: item?.created_supplier_id?.fullName,
                     site_manager_id: item?.site_manager_id?.fullName,
                     order_Items: item?.order_Items,

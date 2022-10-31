@@ -95,8 +95,13 @@ const ViewAllRequestions = () => {
             ),
         },      
         {
+
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Supplier Name</Badge>),
+            selector: "suplier_name",
+
             name: (<Badge color="info" style={{ fontSize: "16px" }} >Delivery Details</Badge>),
             selector: "delivery_details",
+
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
                     <Label style={{ fontSize: "16px" }}><b>{data.delivery_details}</b><br /></Label>
@@ -104,8 +109,13 @@ const ViewAllRequestions = () => {
             ),
         },
         {
+
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Delivery Details</Badge>),
+            selector: "delivery_details",
+
             name: (<Badge color="info" style={{ fontSize: "14px", width: '100px' }} >Order Items</Badge>),
             selector: "order_Items",
+
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
                     <Label ></Label>
@@ -161,12 +171,35 @@ const ViewAllRequestions = () => {
                     <Label style={{ fontSize: "16px" }}><b>{data.required_date}</b><br /></Label>
                 </div>
             ),
+
+        },
+        {
+            name: (<Badge color="info" style={{ fontSize: "16px" }} > Site Manager</Badge>),
+            selector: "site_manager_name",
+            cell: (data) => (
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    <Label style={{ fontSize: "16px" }}><b>{data.site_manager_name}</b><br /></Label>
+                </div>
+            ),
+        },
+
         },        
+
         {
             name: (<Badge color="secondary"  ></Badge>),
             cell: (data) => (
                 <div>
                     <a href={`/view-order/${data?._id}`} className="btn btn-dark">View Order</a>                   
+                </div>
+            ),
+        },
+
+
+        {
+            name: (<Badge color="secondary"  ></Badge>),
+            cell: (data) => (
+                <div>
+                    <a href={`/edit-order/${data?._id}`} className="btn btn-warning" >Edit Order</a>
                 </div>
             ),
         },
@@ -179,6 +212,7 @@ const ViewAllRequestions = () => {
         //         </div>
         //     ),
         // },
+
     ];
 
 
