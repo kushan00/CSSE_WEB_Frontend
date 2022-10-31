@@ -86,7 +86,7 @@ const ViewSupplierShops = () => {
                 Swal.fire(
                     'Deleted!',
                     'Supplier Shop has been deleted.',
-                    'success'
+                    'info'
                 )
                 getSupplierShops();
             }
@@ -104,7 +104,7 @@ const ViewSupplierShops = () => {
     const columns = [
 
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Supplier Shop Name</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Supplier Shop Name</Badge>),
             selector: "supplierShop_name",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -113,7 +113,7 @@ const ViewSupplierShops = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Location</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Location</Badge>),
             selector: "Location",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -122,7 +122,7 @@ const ViewSupplierShops = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Supplier Shop Owner</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Supplier Shop Owner</Badge>),
             selector: "supplier_Id",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -131,7 +131,7 @@ const ViewSupplierShops = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Mobile Number</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Mobile Number</Badge>),
             selector: "Mobile",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>

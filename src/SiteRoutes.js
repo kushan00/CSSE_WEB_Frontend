@@ -15,6 +15,8 @@ import ViewSupplierShops from './pages/Staff_managment/ViewSupplierShop';
 import ViewAllRequestions from './pages/HandleRequestions/ViewAllRequestions'
 import ViewPr from './pages/HandleRequestions/ViewPr'
 import Profile from './pages/Auth/Profile';
+import ViewPayment from './pages/Payment/ViewPayment';
+import Payment from './pages/Payment/Payment';
 
 
 function SiteRoutes() {
@@ -48,6 +50,10 @@ function SiteRoutes() {
                             <Route path='/update-suppliershop/:id' element={<UpdateSupplierShop />} />
 
                             <Route path='/accept-pr/:id' element={<ViewPr />} />
+
+                            <Route path='/view-invoices' element={<ViewPayment/>} />
+                            <Route path='/card' element={<Payment/>} />
+
                         </Route>
                     </>
                     )
