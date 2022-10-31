@@ -15,7 +15,9 @@ import ViewSupplierShops from './pages/Staff_managment/ViewSupplierShop';
 import ViewAllRequestions from './pages/HandleRequestions/ViewAllRequestions'
 import ViewPr from './pages/HandleRequestions/ViewPr'
 import Profile from './pages/Auth/Profile';
-
+import ViewAllOrders from './pages/Order_management/ViewAllOrders'
+import ViewOrder from './pages/Order_management/ViewOrder'
+import EditOrder from './pages/Order_management/EditOrder'
 
 function SiteRoutes() {
 
@@ -36,7 +38,7 @@ function SiteRoutes() {
                             <Route path='/received-prs' element={<ViewAllRequestions />} />
                             <Route path='/received-prs' element={<Blank />} />
                             <Route path='/items-catalogue' element={<ViewItems />} />
-                            <Route path='/view-prs' element={<Blank />} />
+                            <Route path='/view-orders' element={<ViewAllOrders />} />
                             <Route path='/site-details' element={<Blank />} />
                             <Route path='/suppliers' element={<ViewSupplierShops />} />
                             <Route path='/logout' element={<Logout />} />
@@ -48,6 +50,9 @@ function SiteRoutes() {
                             <Route path='/update-suppliershop/:id' element={<UpdateSupplierShop />} />
 
                             <Route path='/accept-pr/:id' element={<ViewPr />} />
+
+                            <Route path='/view-order/:id' element={<ViewOrder />} />
+                            <Route path='/edit-order/:id' element={<EditOrder />} />
                         </Route>
                     </>
                     )
