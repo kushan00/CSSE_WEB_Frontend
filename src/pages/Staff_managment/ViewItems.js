@@ -87,7 +87,7 @@ const ViewItems = () => {
                 Swal.fire(
                     'Deleted!',
                     'Item has been deleted.',
-                    'success'
+                    'info'
                 )
                 getItems();
             }
@@ -105,7 +105,7 @@ const ViewItems = () => {
     const columns = [
 
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Item Name</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Item Name</Badge>),
             selector: "item_name",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -114,7 +114,7 @@ const ViewItems = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Item Price(Rs.)</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Item Price(Rs.)</Badge>),
             selector: "unit_price",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -123,7 +123,7 @@ const ViewItems = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Supplier Name</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Supplier Name</Badge>),
             selector: "supplier_Id",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -132,7 +132,7 @@ const ViewItems = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Item Type</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Item Type</Badge>),
             selector: "type",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -142,7 +142,7 @@ const ViewItems = () => {
         },
        
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} > Item Quantity</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} > Item Quantity</Badge>),
             selector: "available_quantity",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -193,7 +193,7 @@ const ViewItems = () => {
                         {/* <div style={{ fontSize: "15px", float: "right", marginLeft: "10px", marginRight: '20px' }}>&nbsp;&nbsp;&nbsp;
                             <ReactHTMLTableToExcel
                                 id="test-table-xls-button"
-                                className="download-table-xls-button btn btn-success"
+                                className="download-table-xls-button btn btn-info"
                                 table="table-to-xls"
                                 filename="Items Details"
                                 sheet="tablexls"

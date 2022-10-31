@@ -76,7 +76,7 @@ const ViewAllRequestions = () => {
     const columns = [
 
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Company Name</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Company Name</Badge>),
             selector: "company_name",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -85,7 +85,7 @@ const ViewAllRequestions = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Requestion ID</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Requestion ID</Badge>),
             selector: "Requsition_id",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -94,7 +94,7 @@ const ViewAllRequestions = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Supplier Name</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Supplier Name</Badge>),
             selector: "suplier_name",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -103,7 +103,7 @@ const ViewAllRequestions = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} >Delivery Details</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Delivery Details</Badge>),
             selector: "delivery_details",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -113,7 +113,7 @@ const ViewAllRequestions = () => {
         },
        
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} > Required Date</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} > Required Date</Badge>),
             selector: "required_date",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -122,7 +122,7 @@ const ViewAllRequestions = () => {
             ),
         },
         {
-            name: (<Badge color="success" style={{ fontSize: "16px" }} > Site Manager</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px" }} > Site Manager</Badge>),
             selector: "site_manager_name",
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -135,7 +135,7 @@ const ViewAllRequestions = () => {
             name: (<Badge color="secondary"  ></Badge>),
             cell: (data) => (
                 <div>
-                    <a href={`/accept-pr/${data?._id}`} className="btn btn-primary">View Order</a>                   
+                    <a href={`/accept-pr/${data?._id}`} className="btn btn-dark">View Order</a>                   
                 </div>
             ),
         },

@@ -15,9 +15,14 @@ import ViewSupplierShops from './pages/Staff_managment/ViewSupplierShop';
 import ViewAllRequestions from './pages/HandleRequestions/ViewAllRequestions'
 import ViewPr from './pages/HandleRequestions/ViewPr'
 import Profile from './pages/Auth/Profile';
+
+import ViewPayment from './pages/Payment/ViewPayment';
+import Payment from './pages/Payment/Payment';
+
 import ViewAllOrders from './pages/Order_management/ViewAllOrders'
 import ViewOrder from './pages/Order_management/ViewOrder'
 import EditOrder from './pages/Order_management/EditOrder'
+
 
 function SiteRoutes() {
 
@@ -51,8 +56,14 @@ function SiteRoutes() {
 
                             <Route path='/accept-pr/:id' element={<ViewPr />} />
 
+
+                            <Route path='/view-invoices' element={<ViewPayment/>} />
+                            <Route path='/card' element={<Payment/>} />
+
+
                             <Route path='/view-order/:id' element={<ViewOrder />} />
                             <Route path='/edit-order/:id' element={<EditOrder />} />
+
                         </Route>
                     </>
                     )

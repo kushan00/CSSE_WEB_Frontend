@@ -50,6 +50,12 @@ const sidebarNavItems = [
         to: '/view-orders',
         section: 'orders'
     },
+    {
+        display: 'Payments',
+        icon: <i class='bx bxs-shopping-bag-alt'></i>,
+        to: '/view-invoices',
+        section: 'payments'
+    },
     loggedUserToken ?
         {
             display: 'Profile',
