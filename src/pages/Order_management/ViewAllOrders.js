@@ -28,6 +28,7 @@ const ViewAllRequestions = () => {
 
     const [PRDetails, setRequestionDetails] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [openModal, setopenModal] = useState(false);
 
     const getOrders = async () => {
         try {
@@ -92,22 +93,72 @@ const ViewAllRequestions = () => {
                     <Label style={{ fontSize: "16px" }}><b>{data?.order_id}</b><br /></Label>
                 </div>
             ),
-        },
+        },      
         {
+
             name: (<Badge color="info" style={{ fontSize: "16px" }} >Supplier Name</Badge>),
             selector: "suplier_name",
+
+            name: (<Badge color="info" style={{ fontSize: "16px" }} >Delivery Details</Badge>),
+            selector: "delivery_details",
+
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <Label style={{ fontSize: "16px" }}><b>{data.suplier_name}</b><br /></Label>
+                    <Label style={{ fontSize: "16px" }}><b>{data.delivery_details}</b><br /></Label>
                 </div>
             ),
         },
         {
+
             name: (<Badge color="info" style={{ fontSize: "16px" }} >Delivery Details</Badge>),
             selector: "delivery_details",
+
+            name: (<Badge color="info" style={{ fontSize: "14px", width: '100px' }} >Order Items</Badge>),
+            selector: "order_Items",
+
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <Label style={{ fontSize: "16px" }}><b>{data.delivery_details}</b><br /></Label>
+                    <Label ></Label>
+
+                    <a className="btn btn-secondary" style={{ color: 'white', fontSize: '15px' }} onClick={() => setopenModal(true)}>View Items</a>
+                    <div>
+                        <Modal
+                            isOpen={openModal}
+                            className="modal-dialog-centered"
+                            fade={true}
+                            backdrop={true}>
+                            <ModalHeader
+                                toggle={() => {
+                                    setopenModal(false);
+                                }}>
+                                <Label>ORDER ITEMS</Label>
+                                <p></p>
+                            </ModalHeader>
+                            <ModalBody >
+                                <div style={{ width: "470px"}}>
+                                  
+                                        <table className="table table-dark">
+                                            <tr>
+                                                <th style={{ fontSize: "16px" }}>Item Name</th>
+                                                <th style={{ fontSize: "16px" }}>Quantity</th>
+                                                <th style={{ fontSize: "16px" }}>Price</th>
+                                            </tr>
+                                            {data?.order_Items?.map((item) => {
+                                                return (
+                                                    <tr>
+                                                        <td style={{ fontSize: "16px" }}>{item?.name}</td>
+                                                        <td style={{ fontSize: "16px" }}>{item?.quantity}</td>
+                                                        <td style={{ fontSize: "16px" }}>LKR. {item?.price}</td>
+                                                    </tr>
+                                                )
+                                            })}
+                                        </table>
+ 
+                                </div>
+                            </ModalBody>
+                        </Modal>
+                    </div>
+
                 </div>
             ),
         },
@@ -120,6 +171,7 @@ const ViewAllRequestions = () => {
                     <Label style={{ fontSize: "16px" }}><b>{data.required_date}</b><br /></Label>
                 </div>
             ),
+
         },
         {
             name: (<Badge color="info" style={{ fontSize: "16px" }} > Site Manager</Badge>),
@@ -130,7 +182,9 @@ const ViewAllRequestions = () => {
                 </div>
             ),
         },
-        
+
+        },        
+
         {
             name: (<Badge color="secondary"  ></Badge>),
             cell: (data) => (
@@ -140,6 +194,7 @@ const ViewAllRequestions = () => {
             ),
         },
 
+
         {
             name: (<Badge color="secondary"  ></Badge>),
             cell: (data) => (
@@ -148,6 +203,16 @@ const ViewAllRequestions = () => {
                 </div>
             ),
         },
+
+        // {
+        //     name: (<Badge color="secondary"  ></Badge>),
+        //     cell: (data) => (
+        //         <div>
+        //             <a href={`/edit-order/${data?._id}`} className="btn btn-success" >Edit Order</a>
+        //         </div>
+        //     ),
+        // },
+
     ];
 
 

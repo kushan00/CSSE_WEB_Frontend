@@ -101,7 +101,11 @@ const ViewPr = () => {
             <center>
               <CardTitle style={{ color: "black", fontSize: "40px" }}><h3><b>Procurement Construction Industry</b></h3>
                 <h3>
+
                  <h4><b>Place Order</b></h4>
+
+                 <h4><b>Make Order</b></h4>
+
                 </h3>
               </CardTitle>
             </center>

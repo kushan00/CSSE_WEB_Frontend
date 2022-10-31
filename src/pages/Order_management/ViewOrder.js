@@ -34,18 +34,19 @@ const ViewPr = () => {
     const data = await getOrderByID(id.id);
     console.log("selected Order data", data);
     var total = 0;
-    data?.data?.data?.Requsition[0]?.order_Items.map((item) => {
+    data?.data?.data?.Orders[0]?.order_Items.map((item) => {
       total = total + parseInt(item?.price);
     });
     setData({
-      Company_details: data?.data?.data?.Requsition[0]?.Company_details,
-      Supplier_detils: data?.data?.data?.Requsition[0]?.Supplier_detils,
-      delivery_details: data?.data?.data?.Requsition[0]?.delivery_details,
-      site_manager_id: data?.data?.data?.Requsition[0]?.site_manager_id,
-      required_date: data?.data?.data?.Requsition[0]?.required_date,
-      order_Items: data?.data?.data?.Requsition[0]?.order_Items,
-      PR_Id: data?.data?.data?.Requsition[0]?._id,
+      Company_details: data?.data?.data?.Orders[0]?.Company_details,
+      Supplier_detils: data?.data?.data?.Orders[0]?.Supplier_detils,
+      delivery_details: data?.data?.data?.Orders[0]?.delivery_details,
+      site_manager_id: data?.data?.data?.Orders[0]?.site_manager_id,
+      required_date: data?.data?.data?.Orders[0]?.required_date,
+      order_Items: data?.data?.data?.Orders[0]?.order_Items,
+      PR_Id: data?.data?.data?.Orders[0]?._id,
       total_price: total,
+      credit_notice: data?.data?.data?.Orders[0]?.credit_notice,
     });
   };
 
@@ -69,7 +70,7 @@ const ViewPr = () => {
         >
           <div>
             <center>
-              <CardTitle style={{ color: "black", fontSize: "40px" }}>
+              <CardTitle style={{ color: "black", fontSize: "40px", margin: '30px'}}>
                 <h3>
                   <b>View Order</b>
                 </h3>
@@ -167,7 +168,7 @@ const ViewPr = () => {
                       className="form-control"
                       name="credit_notice"
                       onChange={(e) => handleChange(e)}
-                      value={credit_notice}
+                      value={data.credit_notice}
                       type="text"
                       readOnly
                     />
