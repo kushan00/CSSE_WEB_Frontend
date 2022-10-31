@@ -91,7 +91,7 @@ const ViewPr = () => {
           style={{
             marginTop: "70px",
             marginBottom: "70px",
-            width: "1100px",
+            width: "950px",
             float: "none",
             backgroundColor: "white",
             border: "1px solid black",
@@ -99,11 +99,11 @@ const ViewPr = () => {
         >
           <div>
             <center>
+              <br></br>
               <CardTitle style={{ color: "black", fontSize: "40px" }}><h3><b>Procurement Construction Industry</b></h3>
                 <h3>
 
-                 <h4><b>Place Order</b></h4>
-
+              
                  <h4><b>Make Order</b></h4>
 
                 </h3>

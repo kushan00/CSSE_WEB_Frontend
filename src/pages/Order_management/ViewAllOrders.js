@@ -113,14 +113,14 @@ const ViewAllRequestions = () => {
             name: (<Badge color="info" style={{ fontSize: "16px" }} >Delivery Details</Badge>),
             selector: "delivery_details",
 
-            name: (<Badge color="info" style={{ fontSize: "14px", width: '100px' }} >Order Items</Badge>),
+            name: (<Badge color="info" style={{ fontSize: "16px", width: '100px' }} >Order Items</Badge>),
             selector: "order_Items",
 
             cell: (data) => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
                     <Label ></Label>
 
-                    <a className="btn btn-secondary" style={{ color: 'white', fontSize: '15px' }} onClick={() => setopenModal(true)}>View Items</a>
+                    <a className="btn btn-secondary" style={{ color: 'white', fontSize: '12px' }} onClick={() => setopenModal(true)}>View Items</a>
                     <div>
                         <Modal
                             isOpen={openModal}
@@ -173,36 +173,27 @@ const ViewAllRequestions = () => {
             ),
 
         },
-        {
-            name: (<Badge color="info" style={{ fontSize: "16px" }} > Site Manager</Badge>),
-            selector: "site_manager_name",
-            cell: (data) => (
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <Label style={{ fontSize: "16px" }}><b>{data.site_manager_name}</b><br /></Label>
-                </div>
-            ),
-        },
-
-        },        
+      
+        
 
         {
             name: (<Badge color="secondary"  ></Badge>),
             cell: (data) => (
                 <div>
-                    <a href={`/view-order/${data?._id}`} className="btn btn-dark">View Order</a>                   
+                    <a href={`/view-order/${data?._id}`} style={{fontSize:'14px'}} className="btn btn-dark">View Full Order Details</a>                   
                 </div>
             ),
         },
 
 
-        {
-            name: (<Badge color="secondary"  ></Badge>),
-            cell: (data) => (
-                <div>
-                    <a href={`/edit-order/${data?._id}`} className="btn btn-warning" >Edit Order</a>
-                </div>
-            ),
-        },
+        // {
+        //     name: (<Badge color="secondary"  ></Badge>),
+        //     cell: (data) => (
+        //         <div>
+        //             <a href={`/edit-order/${data?._id}`} className="btn btn-warning" >Edit Order</a>
+        //         </div>
+        //     ),
+        // },
 
         // {
         //     name: (<Badge color="secondary"  ></Badge>),
@@ -236,7 +227,7 @@ const ViewAllRequestions = () => {
         </div>
 
     );
-
+    
 };
 
 export default ViewAllRequestions;
