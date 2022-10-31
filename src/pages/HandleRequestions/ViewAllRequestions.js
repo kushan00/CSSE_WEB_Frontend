@@ -135,7 +135,7 @@ const ViewAllRequestions = () => {
             name: (<Badge color="secondary"  ></Badge>),
             cell: (data) => (
                 <div>
-                    <a href={`/accept-pr/${data?._id}`} className="btn btn-dark">View Order</a>                   
+                    <a href={`/accept-pr/${data?._id}`} className="btn btn-dark">Make Order</a>                   
                 </div>
             ),
         },
