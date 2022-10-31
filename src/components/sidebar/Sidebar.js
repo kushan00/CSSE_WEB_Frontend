@@ -26,23 +26,29 @@ const sidebarNavItems = [
         to: '/items-catalogue',
         section: 'items-catalogue'
     },
-    {
-        display: 'View PRs',
-        icon: <i class='bx bxs-file-find' ></i>,
-        to: '/view-prs',
-        section: 'view-prs'
-    },
-    {
-        display: 'Site Details',
-        icon: <i className='bx bx-detail'></i>,
-        to: '/site-details',
-        section: 'site-details'
-    },
+    // {
+    //     display: 'View PRs',
+    //     icon: <i class='bx bxs-file-find' ></i>,
+    //     to: '/view-prs',
+    //     section: 'view-prs'
+    // },
+    // {
+    //     display: 'Site Details',
+    //     icon: <i className='bx bx-detail'></i>,
+    //     to: '/site-details',
+    //     section: 'site-details'
+    // },
     {
         display: 'Suppliers',
         icon: <i className='bx bxs-truck'></i>,
         to: '/suppliers',
         section: 'suppliers'
+    },
+    {
+        display: 'Orders',
+        icon: <i class='bx bxs-shopping-bag-alt'></i>,
+        to: '/orders',
+        section: 'orders'
     },
     loggedUserToken ?
         {
