@@ -47,7 +47,7 @@ const sidebarNavItems = [
     {
         display: 'Orders',
         icon: <i class='bx bxs-shopping-bag-alt'></i>,
-        to: '/orders',
+        to: '/view-orders',
         section: 'orders'
     },
     {
