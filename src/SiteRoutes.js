@@ -22,6 +22,7 @@ import Payment from './pages/Payment/Payment';
 import ViewAllOrders from './pages/Order_management/ViewAllOrders'
 import ViewOrder from './pages/Order_management/ViewOrder'
 import EditOrder from './pages/Order_management/EditOrder'
+import PaymentSuccess from './pages/Payment/PaymentSuccess';
 
 
 function SiteRoutes() {
@@ -59,6 +60,7 @@ function SiteRoutes() {
 
                             <Route path='/view-invoices' element={<ViewPayment/>} />
                             <Route path='/card' element={<Payment/>} />
+                            <Route path='/payment-success' element={<PaymentSuccess />} />
 
 
                             <Route path='/view-order/:id' element={<ViewOrder />} />
