@@ -19,7 +19,7 @@ const PaidDetails = () => {
         order_owner_site_manager_id: "",
         paidto_supplier_id: "",
         paidby_financial_manager_id: "",
-        total_amount: "",
+        total_amount: "LKR",
     });
 
 
@@ -35,7 +35,7 @@ const PaidDetails = () => {
     const getSelectedPayments = async () => {
         const data = await getPaymentById(id.id);
         console.log("selected Invoice data", data);
-        
+
         setData({
             invoice_Id: data?.data?.data?.Invoice[0]?._id,
             order_Id: data?.data?.data?.Invoice[0]?.order_Id,
@@ -62,11 +62,11 @@ const PaidDetails = () => {
             Swal.fire({
                 icon: "success",
                 title: "Successful!",
-                text: "Payment success",
+                text: "Payment Done!",
             });
             // let update = await UpdateStatus(id.id);
 
-            navigate("/");
+            navigate("/view-invoices");
         } else {
             Swal.fire({
                 icon: "error",
@@ -77,94 +77,98 @@ const PaidDetails = () => {
     };
 
 
-   
-        return (
-            <div>
+
+    return (
+        <div>
 
 
-                <div class='container'
+            <div class='container'
                 style={{
                     marginTop: "70px",
                     marginBottom: "70px",
-                    width: '800px',
+                    width: '600px',
                     float: 'none',
                     backgroundColor: 'white',
-                    border: '1px solid black'
+                    border: '3px solid black'
                 }}>
                 <div style={{ margin: "10px" }}>
 
                     <center>
                         <CardTitle style={{ color: "black", fontSize: "40px" }}><h3><b>Procurement Construction Industry</b></h3></CardTitle>
 
-                        <h4><b>Payment details</b></h4>
+                        <h4><b>Payment Details</b></h4>
                         <br></br>
                     </center>
 
-                    <div className="container" style={{ width: '50%', }}>
+                    <div className="container" style={{ width: '70%' }}>
                         <form className='form-group' onSubmit={addPaymentDetails} >
 
 
 
-                            <label style={{ marginTop: '15px' }}>Invoice ID</label>
+                            <label style={{ marginTop: '15px' }}><b>Invoice ID</b></label>
                             <input
                                 className='form-control'
                                 name="supplierShop_name"
                                 onChange={handleChange}
                                 value={invoiceID}
                                 readOnly
+                                style={{ height: '40px' }}
                             />
 
-                            <label style={{ marginTop: '15px' }}>Order ID</label>
+                            <label style={{ marginTop: '15px' }}><b>Order ID</b></label>
                             <input
                                 className='form-control'
                                 name="Location"
                                 onChange={handleChange}
                                 value={data.order_Id?.order_Id}
                                 readOnly
-                                
+                                style={{ height: '40px' }}
 
                             />
 
-                            <label style={{ marginTop: '15px' }}>Site Manager</label>
+                            <label style={{ marginTop: '15px' }}><b>Site Manager Name</b></label>
                             <input
                                 className="form-control"
                                 name="supplier_Id"
                                 onChange={handleChange}
                                 value={data.order_owner_site_manager_id?.fullName}
                                 readOnly
+                                style={{ height: '40px' }}
 
                             />
 
-                            <label style={{ marginTop: '15px' }}>Supplier ID</label>
+                            <label style={{ marginTop: '15px' }}><b>Supplier Name</b></label>
                             <input
                                 className='form-control'
                                 name="paidto_supplier_id"
                                 onChange={handleChange}
                                 value={data.paidto_supplier_id?.fullName}
                                 readOnly
-                               
+                                style={{ height: '40px' }}
+
 
                             />
 
-                            <label style={{ marginTop: '15px' }}>Financial Manager</label>
+                            <label style={{ marginTop: '15px' }}><b>Financial Manager Name</b></label>
                             <input
                                 className='form-control'
                                 name="paidby_financial_manager_id"
                                 onChange={handleChange}
                                 value={localStorage.getItem("user")}
                                 readOnly
-                               
+                                style={{ height: '40px' }}
+
 
                             />
 
-                            <label style={{ marginTop: '15px' }}>Total Amount</label>
+                            <label style={{ marginTop: '15px' }}><b>Total Amount (LKR)</b></label>
                             <input
                                 className='form-control'
                                 name="total_amount"
                                 onChange={handleChange}
                                 value={data.total_amount}
                                 readOnly
-                              
+                                style={{ height: '40px' }}
 
                             />
 
@@ -172,14 +176,14 @@ const PaidDetails = () => {
                             <center>
                                 <br></br>
                                 <button style={{ marginTop: '15px', marginBottom: '15px', width: '200px' }} type="submit" className="btn btn-dark" >
-                                    Checkout
+                                    Do Payment
                                 </button></center>
                         </form>
                     </div>
                 </div>
-            </div> 
             </div>
-        )
-            }
+        </div>
+    )
+}
 
-    export default PaidDetails;
+export default PaidDetails;

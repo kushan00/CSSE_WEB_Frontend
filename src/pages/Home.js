@@ -2,12 +2,13 @@ import React from 'react'
 import img4 from "../images/img2.jpg"
 import img5 from "../images/img1.jpg"
 import img6 from "../images/img3.jpg"
+import img7 from "../images/home.gif"
 
 const Home = () => {
   return (
     <div>
-<center><h3>Procurement in Construction Management</h3></center>
-      <p><b>
+
+      <p style={{color:'grey',fontStyle:'unset'}}>
         Simply put, the procurement process is how we go about acquiring the goods and services we need.
         When we’re shopping for arugula or a pair of jeans, procurement is pretty straightforward.
         But when we’re looking to acquire all of the goods and services needed to get a major construction project up and running,
@@ -19,10 +20,26 @@ const Home = () => {
         upon which the merits of the potential bids are discussed and weighed. Once a provider has been chosen, terms are settled,
         the contract is ratified and the service is executed or the goods provided.
         It isn’t rocket science, but it’s pretty involved, because every last nail has to be specified and procured,
-        and someone has to hammer it in.</b>
+        and someone has to hammer it in.
+      </p>
+
+      <p style={{color:'grey',fontStyle:'unset'}}>
+        The procurement process is how we go about acquiring the goods and services we need.
+        When we’re shopping for arugula or a pair of jeans, procurement is pretty straightforward.
+        But when we’re looking to acquire all of the goods and services needed to get a major construction project up and running,
+        the plot thickens.
+        To get a feel for the complexity of procurement management,
+        let’s take a closer look at the bidding process in construction projects.
+        It begins with preparing the design documents for the required work, and continues with the RFP documentation,
+        an invitation to tender. Different service providers, contractors and suppliers submit their tenders or proposals,
+        upon which the merits of the potential bids are discussed and weighed. Once a provider has been chosen, terms are settled,
+        the contract is ratified and the service is executed or the goods provided.
+        It isn’t rocket science, but it’s pretty involved, because every last nail has to be specified and procured,
+        and someone has to hammer it in.
       </p>
       <center>
-        <div style={{ width: "80%", marginTop: "50px", float: 'center' }}>
+        <img src={img7} alt="img7" style={{width:'60%',height:'80%',boxShadow:"20px 20px 70px grey"}}/>
+        {/* <div style={{ width: "80%", marginTop: "50px", float: 'center' }}>
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -49,7 +66,7 @@ const Home = () => {
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
+        </div> */}
       </center>
     </div>
   )
