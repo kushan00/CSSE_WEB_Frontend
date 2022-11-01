@@ -181,7 +181,7 @@ const ViewPayment = () => {
             name: (<Badge color="white"></Badge>),
             cell: (data) => (
                 <div>
-                    <a href={`/paid-details/${data?._id}`}className="btn btn-dark" style={{ color: 'white', fontSize: '14px' }} >Do Payments</a>
+                    <a href={`/paid-details/${data?._id}`}className="btn btn-dark" style={{ color: 'white', fontSize: '14px' }} >Payment</a>
                 </div>
             ),
         },
