@@ -63,10 +63,10 @@ const ViewPayment = () => {
     }, [])
 
 
-    const routeToCardPage = (e) => {
-        e.preventDefault();
-        navigate("/card");
-    }
+    // const routeToCardPage = (e) => {
+    //     e.preventDefault();
+    //     navigate("/card");
+    // }
 
 
     const columns = [
@@ -181,7 +181,7 @@ const ViewPayment = () => {
             name: (<Badge color="white"></Badge>),
             cell: (data) => (
                 <div>
-                    <a className="btn btn-dark" style={{ color: 'white', fontSize: '14px' }} onClick={(e) => routeToCardPage(e)}>Do Payments</a>
+                    <a href={`/paid-details/${data?._id}`}className="btn btn-dark" style={{ color: 'white', fontSize: '14px' }} >Do Payments</a>
                 </div>
             ),
         },
