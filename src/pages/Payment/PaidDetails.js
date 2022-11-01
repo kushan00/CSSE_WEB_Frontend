@@ -20,7 +20,6 @@ const PaidDetails = () => {
         paidto_supplier_id: "",
         paidby_financial_manager_id: "",
         total_amount: "",
-
     });
 
 
@@ -31,20 +30,21 @@ const PaidDetails = () => {
 
     const id = useParams();
 
+    const [invoiceID, setinvoiceID] = useState("");
+
     const getSelectedPayments = async () => {
         const data = await getPaymentById(id.id);
-        console.log("selected payments data", data);
+        console.log("selected Invoice data", data);
         
         setData({
-            invoice_Id: data?.data?.data?.Invoices[0]?.invoice_Id,
-            order_Id: data?.data?.data?.Invoices[0]?.order_Id?._id,
-            order_owner_site_manager_id: data?.data?.data?.Invoices[0]?.order_owner_site_manager_id?._id,
-            paidto_supplier_id: data?.data?.data?.Invoices[0]?.paidto_supplier_id._id,
-            paidby_financial_manager_id: data?.data?.data?.Invoices[0]?.paidby_financial_manager_id._id,
-            total_amount: data?.data?.data?.Invoices[0]?.total_amount,
-            payment_Id:data?.data?.data?.Invoices[0]?._id,
-
+            invoice_Id: data?.data?.data?.Invoice[0]?._id,
+            order_Id: data?.data?.data?.Invoice[0]?.order_Id,
+            order_owner_site_manager_id: data?.data?.data?.Invoice[0]?.site_manager_id,
+            paidto_supplier_id: data?.data?.data?.Invoice[0]?.created_supplier_id,
+            paidby_financial_manager_id: localStorage.getItem("_id"),
+            total_amount: data?.data?.data?.Invoice[0]?.total_price,
         });
+        setinvoiceID(data?.data?.data?.Invoice[0]?.invoice_Id);
 
     };
 
@@ -64,7 +64,7 @@ const PaidDetails = () => {
                 title: "Successful!",
                 text: "Payment success",
             });
-            let update = await UpdateStatus(id.id);
+            // let update = await UpdateStatus(id.id);
 
             navigate("/");
         } else {
@@ -110,9 +110,8 @@ const PaidDetails = () => {
                                 className='form-control'
                                 name="supplierShop_name"
                                 onChange={handleChange}
-                                value={data.invoice_Id}
+                                value={invoiceID}
                                 readOnly
-
                             />
 
                             <label style={{ marginTop: '15px' }}>Order ID</label>
@@ -120,7 +119,7 @@ const PaidDetails = () => {
                                 className='form-control'
                                 name="Location"
                                 onChange={handleChange}
-                                value={data.order_Id}
+                                value={data.order_Id?.order_Id}
                                 readOnly
                                 
 
@@ -152,7 +151,7 @@ const PaidDetails = () => {
                                 className='form-control'
                                 name="paidby_financial_manager_id"
                                 onChange={handleChange}
-                                value={data.paidby_financial_manager_id?.fullName}
+                                value={localStorage.getItem("user")}
                                 readOnly
                                
 
