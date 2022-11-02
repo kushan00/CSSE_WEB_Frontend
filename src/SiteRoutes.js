@@ -24,6 +24,7 @@ import ViewOrder from './pages/Order_management/ViewOrder'
 import EditOrder from './pages/Order_management/EditOrder'
 import PaymentSuccess from './pages/Payment/PaymentSuccess';
 import PaidDeatils from './pages/Payment/PaidDetails';
+import PaymentHistory from './pages/Payment/PaymentHistory';
 
 
 function SiteRoutes() {
@@ -63,6 +64,7 @@ function SiteRoutes() {
                             <Route path='/card' element={<Payment/>} />
                             <Route path='/payment-success' element={<PaymentSuccess />} />
                             <Route path='/paid-details/:id' element={<PaidDeatils/>} />
+                            <Route path='/payment-history' element={<PaymentHistory />} />
 
 
                             <Route path='/view-order/:id' element={<ViewOrder />} />

@@ -63,10 +63,10 @@ const ViewPayment = () => {
     }, [])
 
 
-    // const routeToCardPage = (e) => {
-    //     e.preventDefault();
-    //     navigate("/card");
-    // }
+    const routeToPaymentHistory = (e) => {
+        e.preventDefault();
+        navigate("/payment-history");
+    }
 
 
     const columns = [
@@ -196,6 +196,8 @@ const ViewPayment = () => {
                 <Card >
                     <CardHeader >
                         <CardTitle style={{ color: "black", fontSize: "30px", float: "left" }}><b>View Received Invoices</b></CardTitle>
+
+                        <Button className="btn btn-info" style={{ fontSize: "15px", float: "right", width: '200px' ,height:'40px'}} onClick={(e) => routeToPaymentHistory(e)}><b>  View Payment History</b></Button>
                     </CardHeader>
                     <CardBody >
                         <DataTable

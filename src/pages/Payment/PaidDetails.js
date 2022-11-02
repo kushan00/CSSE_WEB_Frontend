@@ -53,6 +53,7 @@ const PaidDetails = () => {
     }, []);
 
 
+   
 
     const addPaymentDetails = async (e) => {
         e.preventDefault();
@@ -62,11 +63,11 @@ const PaidDetails = () => {
             Swal.fire({
                 icon: "success",
                 title: "Successful!",
-                text: "Payment Done!",
+                text: "Payment Confirmed!",
             });
-            // let update = await UpdateStatus(id.id);
+            
 
-            navigate("/view-invoices");
+            navigate("/card");
         } else {
             Swal.fire({
                 icon: "error",
@@ -176,7 +177,7 @@ const PaidDetails = () => {
                             <center>
                                 <br></br>
                                 <button style={{ marginTop: '15px', marginBottom: '15px', width: '200px' }} type="submit" className="btn btn-dark" >
-                                    Do Payment
+                                   Continue to payment
                                 </button></center>
                         </form>
                     </div>

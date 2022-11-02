@@ -102,7 +102,7 @@ const Payment = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Successful!',
-                    text: 'payment success!',
+                    text: 'Payment Done!',
                 })
                 navigate("/view-invoices");
             }
@@ -190,7 +190,7 @@ const Payment = () => {
 
 
                         <center>
-                            <Button className="btn btn-dark" onClick={(e) => addCard(e)} style={{ marginTop: "20px" }}>Confirm Payment</Button>
+                            <Button className="btn btn-dark" onClick={(e) => addCard(e)} style={{ marginTop: "20px" }}>Submit</Button>
                         </center>
                     </form>
                 </div>
