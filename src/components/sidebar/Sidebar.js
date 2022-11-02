@@ -52,7 +52,7 @@ const sidebarNavItems = [
     },
     {
         display: 'Payments',
-        icon: <i class='bx bxs-shopping-bag-alt'></i>,
+        icon: <i class='bx bxs-credit-card-front'></i>,
         to: '/view-invoices',
         section: 'payments'
     },

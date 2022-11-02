@@ -5,6 +5,7 @@ import StartUrl from "../configs/Url.json";
 const CreateURL = StartUrl?.StartUrl + "/payment/createPayment";
 const UpdateStatusURL = StartUrl?.StartUrl + "/payment/getPaymentByStatus/";
 const GetByInvoiceID = StartUrl?.StartUrl + "/invoice/getInvoiceById/";
+const GetAllURL = StartUrl?.StartUrl + "/payment/getPayments";
 
 export async function getPaymentById(id) {
   let result;
@@ -71,3 +72,23 @@ export async function createPayment(data, credit_notice) {
       });
     return result;
   }
+
+  export async function getPayments(){
+    let result;
+    await axios.get(GetAllURL)
+     .then(function(data) {
+  
+         result = data;
+     })
+     .catch(function (error) {
+         if (error.response) {
+         
+           result = error.response;
+         } else if (error.request) {
+          
+           result = error.request;
+         } 
+       });
+  return result; 
+   
+}
